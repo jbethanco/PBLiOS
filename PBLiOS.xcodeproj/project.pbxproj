@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D201C9EE259A878B00F909A7 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */; };
+		D201C9EF259A878B00F909A7 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */; };
+		D201C9F0259A878B00F909A7 /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */; };
 		D23BAF0F25956D07001EB217 /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D23BAF0E25956D07001EB217 /* fillable781v3.pdf */; };
 		D23BAF1A25958B86001EB217 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23BAF1925958B86001EB217 /* TestView.swift */; };
 		D2429FDE2595CF1600EB4A09 /* DevicesForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2429FDD2595CF1600EB4A09 /* DevicesForPreview.swift */; };
@@ -25,9 +28,6 @@
 		D2AEA83E2592DB200099D97B /* PBLiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AEA83D2592DB200099D97B /* PBLiOSTests.swift */; };
 		D2AEA8492592DB210099D97B /* PBLiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2AEA8482592DB210099D97B /* PBLiOSUITests.swift */; };
 		D2B76AB72597B273008FE52D /* FauxData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B76AB62597B273008FE52D /* FauxData.swift */; };
-		D2BFD69625953269006E9E0D /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2BFD69325953269006E9E0D /* DMSans-Bold.ttf */; };
-		D2BFD69725953269006E9E0D /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2BFD69425953269006E9E0D /* DMSans-Medium.ttf */; };
-		D2BFD69825953269006E9E0D /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D2BFD69525953269006E9E0D /* DMSans-Regular.ttf */; };
 		D2BFD6A025953747006E9E0D /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BFD69F25953747006E9E0D /* Font.swift */; };
 		D2BFD6A625955564006E9E0D /* Fillable781FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BFD6A525955564006E9E0D /* Fillable781FormView.swift */; };
 		D2BFD6AF259555FD006E9E0D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BFD6AE259555FD006E9E0D /* Constants.swift */; };
@@ -55,6 +55,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		D23BAF0E25956D07001EB217 /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
 		D23BAF1925958B86001EB217 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		D2429FDD2595CF1600EB4A09 /* DevicesForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesForPreview.swift; sourceTree = "<group>"; };
@@ -79,9 +82,6 @@
 		D2AEA8482592DB210099D97B /* PBLiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBLiOSUITests.swift; sourceTree = "<group>"; };
 		D2AEA84A2592DB210099D97B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2B76AB62597B273008FE52D /* FauxData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FauxData.swift; sourceTree = "<group>"; };
-		D2BFD69325953269006E9E0D /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Bold.ttf"; path = "../../../../../Logging-iOS/Logging/Resources/Fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; };
-		D2BFD69425953269006E9E0D /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Medium.ttf"; path = "../../../../../Logging-iOS/Logging/Resources/Fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; };
-		D2BFD69525953269006E9E0D /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Regular.ttf"; path = "../../../../../Logging-iOS/Logging/Resources/Fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		D2BFD69F25953747006E9E0D /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		D2BFD6A525955564006E9E0D /* Fillable781FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fillable781FormView.swift; sourceTree = "<group>"; };
 		D2BFD6AE259555FD006E9E0D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -206,6 +206,9 @@
 		D2BFD685259531F2006E9E0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */,
+				D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */,
+				D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */,
 				D23BAF0E25956D07001EB217 /* fillable781v3.pdf */,
 				D2AEA82A2592DB200099D97B /* Assets.xcassets */,
 				D2BFD686259531FA006E9E0D /* Fonts */,
@@ -216,9 +219,6 @@
 		D2BFD686259531FA006E9E0D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				D2BFD69325953269006E9E0D /* DMSans-Bold.ttf */,
-				D2BFD69425953269006E9E0D /* DMSans-Medium.ttf */,
-				D2BFD69525953269006E9E0D /* DMSans-Regular.ttf */,
 				D2BFD69F25953747006E9E0D /* Font.swift */,
 			);
 			path = Fonts;
@@ -379,12 +379,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2BFD69825953269006E9E0D /* DMSans-Regular.ttf in Resources */,
+				D201C9EF259A878B00F909A7 /* DMSans-Regular.ttf in Resources */,
 				D2AEA82E2592DB200099D97B /* Preview Assets.xcassets in Resources */,
-				D2BFD69725953269006E9E0D /* DMSans-Medium.ttf in Resources */,
-				D2BFD69625953269006E9E0D /* DMSans-Bold.ttf in Resources */,
 				D2AEA82B2592DB200099D97B /* Assets.xcassets in Resources */,
 				D23BAF0F25956D07001EB217 /* fillable781v3.pdf in Resources */,
+				D201C9EE259A878B00F909A7 /* DMSans-Bold.ttf in Resources */,
+				D201C9F0259A878B00F909A7 /* DMSans-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
