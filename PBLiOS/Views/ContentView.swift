@@ -33,7 +33,7 @@ struct ContentView: View {
                                 .padding(.init(top: 4, leading: 20, bottom: 4, trailing: 20))
                                 .background(Color.gray)
                                 .cornerRadius(5)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color(.white))
                         }
                     }
                     .onDelete(perform: deleteItems)
@@ -52,7 +52,9 @@ struct ContentView: View {
             
                 .sheet(isPresented: $showSettings, content: {
                                     SettingsView()
-                                })
+                })
+                
+                
                 HStack{
                     Button(action: {
                         showSettings.toggle()
@@ -72,12 +74,14 @@ struct ContentView: View {
     }
     
     private func addItem() {
-        print(#function)
+   
         withAnimation {
             let newForm = Form781(context: moc)
             newForm.date = Date()
-            newForm.mds = DefaultsManager.stringFor(key: "defaultMDS")
-            
+            newForm.mds = DefaultsManager.stringFor(key: .defaultMDS)
+            newForm.issuingUnit = DefaultsManager.stringFor(key: .defaultIssuingUnit)
+            newForm.harmLocation = DefaultsManager.stringFor(key: .defaultHarm)
+            newForm.unitCharged = DefaultsManager.stringFor(key: .defaultUnitCharged)
            
             do {
                 try moc.save()

@@ -9,28 +9,42 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    //@AppStorage("harmDefault") private var harmDefault = "" // requires iOS 14, but makes life easier.
-    @AppStorage13(key: "defaultMDS",    defaultValue: "C017A")                private var defaultMDS
-    @AppStorage13(key: "unitCharged",   defaultValue: "437 AW (HQ AMC)/DKFX") private var defaultUnitCharged
-    @AppStorage13(key: "defaultHarm",   defaultValue: "JRB Charleston")       private var defaultHarm
-    @AppStorage13(key: "issuingUnit",   defaultValue: "0016AS")               private var defaultIssuingUnit
+    @YoDefaults(key: .defaultMDS,             defaultValue: "C017A")                private var defaultMDS
+    @YoDefaults(key: .defaultUnitCharged,     defaultValue: "437 AW (HQ AMC)/DKFX") private var defaultUnitCharged
+    @YoDefaults(key: .defaultHarm,            defaultValue: "JRB Charleston")       private var defaultHarm
+    @YoDefaults(key: .defaultIssuingUnit,     defaultValue: "0016AS")               private var defaultIssuingUnit
    
+    let labelWidth: CGFloat = 180
+    let labelHeight: CGFloat = 25
     
     var body: some View {
         Form{
             HStack{
                 Text("Default MDS")
+                    .frame(width: labelWidth, height: labelHeight, alignment: .leading)
+                Text(":")
                 TextField("Default MDS" ,           text: $defaultMDS)
             }
             HStack{
-                Text("Default Unit Charged   :")
+                Text("Default Unit Charged")
+                    .frame(width: labelWidth, height: labelHeight, alignment: .leading)
+                Text(":")
                 TextField("Default Takeoff ICAO" ,  text: $defaultUnitCharged)
             }
             HStack{
-                Text("Default Harm Location :")
+                Text("Default Harm Location")
+                    .frame(width: labelWidth, height: labelHeight, alignment: .leading)
+                Text(":")
                 TextField("Default Harm Location" , text: $defaultHarm)
             }
+            HStack{
+                Text("Default Issuing Unit")
+                    .frame(width: labelWidth, height: labelHeight, alignment: .leading)
+                Text(":")
+                TextField("Default Issuing Unit" , text: $defaultIssuingUnit)
+            }
         }
+        
     }
 }
 struct SettingsView_Previews: PreviewProvider {
@@ -40,11 +54,11 @@ struct SettingsView_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: Devices.iPadPro9_7.rawValue))
                 .previewDisplayName(Devices.iPadPro9_7.rawValue)
         }
-        Group{
-            SettingsView()
-                .previewDevice(PreviewDevice(rawValue: Devices.iPhone12.rawValue))
-                .previewDisplayName(Devices.iPhone12.rawValue)
-        }
+//        Group{
+//            SettingsView()
+//                .previewDevice(PreviewDevice(rawValue: Devices.iPhone12.rawValue))
+//                .previewDisplayName(Devices.iPhone12.rawValue)
+//        }
        
     }
 }
