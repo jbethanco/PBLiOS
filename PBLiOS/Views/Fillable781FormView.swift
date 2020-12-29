@@ -22,7 +22,7 @@ struct Fillable781FormView: View{
     @State private var flights          = [Flight]()
     @State private var aircrewData      = [AircrewData]()
     @State private var remarks          = ""
- 
+    
     var form: Form781
     
     var body: some View {
@@ -31,7 +31,7 @@ struct Fillable781FormView: View{
             Text("AFTO Form 781 For \(form.date!.defaultDisplayDate())")
             Form {
                 Section(header: Text("MISSION DATA").dmSansFont(style: .headline, weight: .bold)) {
-               
+                    
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                         .environment(\.locale, .init(identifier: "en_GB"))
                         .datePickerStyle(DefaultDatePickerStyle())
@@ -52,22 +52,16 @@ struct Fillable781FormView: View{
                             .frame(width: 75, height: 50, alignment: .center)
                         Text("Mission Symbol")
                             .frame(width: 75, height: 50, alignment: .center)
-                        Text("From")
-                            .frame(width: 60, height: 50, alignment: .center)
-                        Text("To")
-                            .frame(width: 60, height: 50, alignment: .center)
-                        Text("Take Off Time(Z)")
-                            .frame(width: 75, height: 50, alignment: .center)
-                        Text("Land Time")
-                            .frame(width: 75, height: 50, alignment: .center)
+                        VStack{
+                            Text("From")
+                            Text("To")
+                        }.frame(width: 60, height: 50, alignment: .center)
+                        VStack{
+                            Text("Take Off Time")
+                            Text("Land Time (Z)")
+                        }.frame(width: 222, height: 50, alignment: .center)
                         VStack{
                             Text("Landings")
-                            HStack{
-                                Text("T&G")
-                                    .frame(width: 50, height: 50, alignment: .center)
-                                Text("Full Stop")
-                                    .frame(width: 75, height: 50, alignment: .center)
-                            }
                         }
                     }
                     ForEach(flights.indices, id:\.self ){ index in
@@ -75,7 +69,7 @@ struct Fillable781FormView: View{
                     }
                     if flights.count <= 4{
                         Button(action: {
-                        
+                            
                             let flight = Flight(context: moc)
                             flight.missionNumber = ""
                             flight.missionSymbol = ""
@@ -87,14 +81,14 @@ struct Fillable781FormView: View{
                             withAnimation{
                                 flights.append(flight)
                             }
-                           
-                             
+                            
+                            
                         }) {
                             Image(systemName: "plus.circle")
                         }
                     }
-                  
-                
+                    
+                    
                 }
             }
         }
@@ -138,44 +132,67 @@ struct FlightLineView: View {
                 get: { return flights[index].missionNumber! },
                 set: { (newValue) in return self.flights[index].missionNumber = newValue}
             ))
-             .frame(width: 75, height: 25, alignment: .center)
+            .frame(width: 75, height: 25, alignment: .center)
             
             TextField("symbol", text: Binding(
                 get: { return flights[index].missionSymbol! },
                 set: { (newValue) in return self.flights[index].missionSymbol = newValue}
             ))
-             .frame(width: 75, height: 25, alignment: .center)
-            
-            TextField("from", text: Binding(
-                get: { return flights[index].fromICAO! },
-                set: { (newValue) in return self.flights[index].fromICAO = newValue}
-            ))
-             .frame(width: 60, height: 25, alignment: .center)
-            
-            TextField("to", text: Binding(
-                get: { return flights[index].toICAO! },
-                set: { (newValue) in return self.flights[index].toICAO = newValue}
-            ))
-             .frame(width: 60, height: 25, alignment: .center)
-            
-            DatePicker("", selection: Binding(
-                get: { return flights[index].takeOffTime! },
-                set: { (newValue) in return self.flights[index].takeOffTime = newValue}
-            ), displayedComponents: .hourAndMinute)
-                .environment(\.locale, .init(identifier: "en_GB"))
-                .datePickerStyle(DefaultDatePickerStyle())
             .frame(width: 75, height: 25, alignment: .center)
             
-            DatePicker("", selection: Binding(
-                get: { return flights[index].landTime! },
-                set: { (newValue) in return self.flights[index].landTime = newValue}
-            ), displayedComponents: .hourAndMinute)
+            VStack{
+                TextField("from", text: Binding(
+                    get: { return flights[index].fromICAO! },
+                    set: { (newValue) in return self.flights[index].fromICAO = newValue}
+                ))
+                .frame(width: 60, height: 25, alignment: .center)
+                
+                TextField("to", text: Binding(
+                    get: { return flights[index].toICAO! },
+                    set: { (newValue) in return self.flights[index].toICAO = newValue}
+                ))
+            }
+            .frame(width: 60, height: 25, alignment: .center)
+            VStack{
+                DatePicker("", selection: Binding(
+                    get: { return flights[index].takeOffTime! },
+                    set: { (newValue) in return self.flights[index].takeOffTime = newValue}
+                ), displayedComponents: [.date, .hourAndMinute])
                 .environment(\.locale, .init(identifier: "en_GB"))
                 .datePickerStyle(DefaultDatePickerStyle())
-            .frame(width: 75, height: 25, alignment: .center)
+                .frame(width: 200, height: 25, alignment: .center)
+                DatePicker("", selection: Binding(
+                    get: { return flights[index].landTime! },
+                    set: { (newValue) in return self.flights[index].landTime = newValue}
+                ), displayedComponents: [.date, .hourAndMinute])
+                .environment(\.locale, .init(identifier: "en_GB"))
+                .datePickerStyle(DefaultDatePickerStyle())
+                .frame(width: 200, height: 25, alignment: .center)
+            }
             
-             
-         
+            VStack{
+                HStack{
+                    Text("   T&G      ")
+                     TextField("t&g", text: Binding(
+                        get: { return String(flights[index].touchanAndGo) },
+                        set: { (newValue) in return self.flights[index].touchanAndGo = Int16(newValue) ?? 0}
+                    ))
+                }
+                HStack{
+                    Text("  Full Stop")
+                     TextField("FS", text: Binding(
+                        get: { return String(flights[index].fullStop) },
+                        set: { (newValue) in return self.flights[index].fullStop = Int16(newValue) ?? 0}
+                    ))
+                }
+                
+            }
+            
+            
+            
+            
+            
+            
             
         }.multilineTextAlignment(.center) //center text within TextFields
     }
@@ -196,7 +213,7 @@ struct Fillable781Preview_Previews: PreviewProvider {
             form.flightAuthNum = "20-0539"
             form.issuingUnit = "0016AS"
             
-             
+            
             let flight = Flight(context:  PersistenceController.preview.container.viewContext)
             flight.missionNumber = "123"
             flight.missionSymbol = "456"
@@ -224,10 +241,10 @@ struct Fillable781Preview_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
                 .previewDisplayName("iPad Pro (9.7-inch)")
             
-//            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-//                .padding()
-//                .previewDevice(PreviewDevice(rawValue:Devices.iPhone12.rawValue))
-//                .previewDisplayName(Devices.iPhone12.rawValue)
+            //            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            //                .padding()
+            //                .previewDevice(PreviewDevice(rawValue:Devices.iPhone12.rawValue))
+            //                .previewDisplayName(Devices.iPhone12.rawValue)
         }
         
     }
