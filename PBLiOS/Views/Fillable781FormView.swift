@@ -53,17 +53,48 @@ struct Fillable781FormView: View{
                         Text("Mission Symbol")
                             .frame(width: 75, height: 50, alignment: .center)
                         Text("From")
-                            .frame(width: 75, height: 50, alignment: .center)
+                            .frame(width: 60, height: 50, alignment: .center)
                         Text("To")
-                            .frame(width: 75, height: 50, alignment: .center)
+                            .frame(width: 60, height: 50, alignment: .center)
                         Text("Take Off Time(Z)")
                             .frame(width: 75, height: 50, alignment: .center)
                         Text("Land Time")
                             .frame(width: 75, height: 50, alignment: .center)
+                        VStack{
+                            Text("Landings")
+                            HStack{
+                                Text("T&G")
+                                    .frame(width: 50, height: 50, alignment: .center)
+                                Text("Full Stop")
+                                    .frame(width: 75, height: 50, alignment: .center)
+                            }
+                        }
                     }
                     ForEach(flights.indices, id:\.self ){ index in
                         FlightLineView(flights: flights, index: index)
                     }
+                    if flights.count <= 4{
+                        Button(action: {
+                        
+                            let flight = Flight(context: moc)
+                            flight.missionNumber = ""
+                            flight.missionSymbol = ""
+                            flight.fromICAO = ""
+                            flight.toICAO = ""
+                            flight.takeOffTime = Date()
+                            flight.landTime = Date()
+                            flight.form781 = form
+                            withAnimation{
+                                flights.append(flight)
+                            }
+                           
+                             
+                        }) {
+                            Image(systemName: "plus.circle")
+                        }
+                    }
+                  
+                
                 }
             }
         }
@@ -107,25 +138,25 @@ struct FlightLineView: View {
                 get: { return flights[index].missionNumber! },
                 set: { (newValue) in return self.flights[index].missionNumber = newValue}
             ))
-            .frame(width: 75, height: 25, alignment: .center)
+             .frame(width: 75, height: 25, alignment: .center)
             
             TextField("symbol", text: Binding(
                 get: { return flights[index].missionSymbol! },
                 set: { (newValue) in return self.flights[index].missionSymbol = newValue}
             ))
-            .frame(width: 75, height: 25, alignment: .center)
+             .frame(width: 75, height: 25, alignment: .center)
             
             TextField("from", text: Binding(
                 get: { return flights[index].fromICAO! },
                 set: { (newValue) in return self.flights[index].fromICAO = newValue}
             ))
-            .frame(width: 75, height: 25, alignment: .center)
+             .frame(width: 60, height: 25, alignment: .center)
             
             TextField("to", text: Binding(
                 get: { return flights[index].toICAO! },
                 set: { (newValue) in return self.flights[index].toICAO = newValue}
             ))
-            .frame(width: 75, height: 25, alignment: .center)
+             .frame(width: 60, height: 25, alignment: .center)
             
             DatePicker("", selection: Binding(
                 get: { return flights[index].takeOffTime! },
@@ -142,9 +173,11 @@ struct FlightLineView: View {
                 .environment(\.locale, .init(identifier: "en_GB"))
                 .datePickerStyle(DefaultDatePickerStyle())
             .frame(width: 75, height: 25, alignment: .center)
+            
+             
          
             
-        }
+        }.multilineTextAlignment(.center) //center text within TextFields
     }
 }
 
