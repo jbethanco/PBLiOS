@@ -30,9 +30,7 @@ struct Fillable781FormView: View{
         VStack{
             Text("AFTO Form 781 For \(form.date!.defaultDisplayDate())")
             Form {
-                Section(header: Text("MISSION DATA")
-                            .dmSansFont(style: .headline, weight: .bold)
-                ) {
+                Section(header: Text("MISSION DATA").dmSansFont(style: .headline, weight: .bold)) {
                
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                         .environment(\.locale, .init(identifier: "en_GB"))
@@ -47,20 +45,24 @@ struct Fillable781FormView: View{
                     // FOR IOS 14 ... TextEditor(text: $remarks)
                     TextField("Remarks",        text: $remarks)
                 }
-                Section(header: Text("Flights")
-                            .dmSansFont(style: .headline, weight: .bold)
-                ){
+                Section(header: Text("Flights").dmSansFont(style: .headline, weight: .bold)){
+                    HStack{
+                        // Column headers
+                        Text("Mission Number")
+                            .frame(width: 75, height: 50, alignment: .center)
+                        Text("Mission Symbol")
+                            .frame(width: 75, height: 50, alignment: .center)
+                        Text("From")
+                            .frame(width: 75, height: 50, alignment: .center)
+                        Text("To")
+                            .frame(width: 75, height: 50, alignment: .center)
+                        Text("Take Off Time(Z)")
+                            .frame(width: 75, height: 50, alignment: .center)
+                        Text("Land Time")
+                            .frame(width: 75, height: 50, alignment: .center)
+                    }
                     ForEach(flights.indices, id:\.self ){ index in
-                       HStack {
-                        TextField("To ICAO", text: Binding(
-                           get: { return flights[index].toICAO! },
-                           set: { (newValue) in return self.flights[index].toICAO = newValue}
-                        ))
-                         TextField("From ICAO", text: Binding(
-                            get: { return flights[index].fromICAO! },
-                            set: { (newValue) in return self.flights[index].fromICAO = newValue}
-                         ))
-                       }
+                        FlightLineView(flights: flights, index: index)
                     }
                 }
             }
@@ -95,6 +97,57 @@ struct Fillable781FormView: View{
     }
 }
 
+struct FlightLineView: View {
+    var flights: [Flight]
+    var index: Int
+    
+    var body: some View{
+        HStack {
+            TextField("#", text: Binding(
+                get: { return flights[index].missionNumber! },
+                set: { (newValue) in return self.flights[index].missionNumber = newValue}
+            ))
+            .frame(width: 75, height: 25, alignment: .center)
+            
+            TextField("symbol", text: Binding(
+                get: { return flights[index].missionSymbol! },
+                set: { (newValue) in return self.flights[index].missionSymbol = newValue}
+            ))
+            .frame(width: 75, height: 25, alignment: .center)
+            
+            TextField("from", text: Binding(
+                get: { return flights[index].fromICAO! },
+                set: { (newValue) in return self.flights[index].fromICAO = newValue}
+            ))
+            .frame(width: 75, height: 25, alignment: .center)
+            
+            TextField("to", text: Binding(
+                get: { return flights[index].toICAO! },
+                set: { (newValue) in return self.flights[index].toICAO = newValue}
+            ))
+            .frame(width: 75, height: 25, alignment: .center)
+            
+            DatePicker("", selection: Binding(
+                get: { return flights[index].takeOffTime! },
+                set: { (newValue) in return self.flights[index].takeOffTime = newValue}
+            ), displayedComponents: .hourAndMinute)
+                .environment(\.locale, .init(identifier: "en_GB"))
+                .datePickerStyle(DefaultDatePickerStyle())
+            .frame(width: 75, height: 25, alignment: .center)
+            
+            DatePicker("", selection: Binding(
+                get: { return flights[index].landTime! },
+                set: { (newValue) in return self.flights[index].landTime = newValue}
+            ), displayedComponents: .hourAndMinute)
+                .environment(\.locale, .init(identifier: "en_GB"))
+                .datePickerStyle(DefaultDatePickerStyle())
+            .frame(width: 75, height: 25, alignment: .center)
+         
+            
+        }
+    }
+}
+
 struct Fillable781Preview_Previews: PreviewProvider {
     static var previews: some View {
         
@@ -112,13 +165,21 @@ struct Fillable781Preview_Previews: PreviewProvider {
             
              
             let flight = Flight(context:  PersistenceController.preview.container.viewContext)
+            flight.missionNumber = "123"
+            flight.missionSymbol = "456"
             flight.fromICAO = "KTIK"
             flight.toICAO = "KTIK"
+            flight.takeOffTime = Date()
+            flight.landTime = Date()
             flight.form781 = form
             
             let flight2 = Flight(context:  PersistenceController.preview.container.viewContext)
+            flight2.missionNumber = "654"
+            flight2.missionSymbol = "432"
             flight2.fromICAO = "KTCM"
             flight2.toICAO = "KNGB"
+            flight2.takeOffTime = Date()
+            flight2.landTime = Date()
             flight2.form781 = form 
             
             return form
@@ -130,10 +191,10 @@ struct Fillable781Preview_Previews: PreviewProvider {
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
                 .previewDisplayName("iPad Pro (9.7-inch)")
             
-            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-                .padding()
-                .previewDevice(PreviewDevice(rawValue:Devices.iPhone12.rawValue))
-                .previewDisplayName(Devices.iPhone12.rawValue)
+//            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+//                .padding()
+//                .previewDevice(PreviewDevice(rawValue:Devices.iPhone12.rawValue))
+//                .previewDisplayName(Devices.iPhone12.rawValue)
         }
         
     }
