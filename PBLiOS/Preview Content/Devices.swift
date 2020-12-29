@@ -17,12 +17,24 @@ enum Devices: String {
     case iPhoneSE       = "iPhone SE"
     case iPhone12       = "iPhone 12"
     
+    case iPad2          = "iPad 2"
+    case iPadRetina     = "iPad Retina"
+    case iPadAir        = "iPad Air"
+    case iPadMini2      = "iPad Mini 2"
+    case iPadMini3      = "iPad Mini 3"
+    case iPadMini4      = "iPad Mini 4"
+    
+    case iPadPro9_7      = "iPad Pro (9.7-inch)"
+    case iPadPro12_9     = "iPad Pro (12.9-inch) (4th generation)"
+    
+    
     
 }
 /*iPhone Xʀ (com
- In termiiPhone 11 (comnal run:
- xcrun siiPhone 11 Pro mctl list devicetypes
- iPhone 11 Pro
+ In terminal run:
+ 
+ xcrun simctl list
+ 
  Gives available device types for swift ui preview
   
  iPhone 7 (com.apple.CoreSimulator.SimDeviceType.iPhone-7)

@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF89F2AB259BAF1500020CE4 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF89F2AA259BAF1500020CE4 /* DefaultsManager.swift */; };
+		BF97DA9D259BA5B600C9F44A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97DA9C259BA5B600C9F44A /* SettingsView.swift */; };
 		D201C9EE259A878B00F909A7 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */; };
 		D201C9EF259A878B00F909A7 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */; };
 		D201C9F0259A878B00F909A7 /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */; };
 		D23BAF0F25956D07001EB217 /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D23BAF0E25956D07001EB217 /* fillable781v3.pdf */; };
-		D2429FDE2595CF1600EB4A09 /* DevicesForPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2429FDD2595CF1600EB4A09 /* DevicesForPreview.swift */; };
+		D2429FDE2595CF1600EB4A09 /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2429FDD2595CF1600EB4A09 /* Devices.swift */; };
 		D2A709462597A51400E7B122 /* AircrewData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A709402597A51400E7B122 /* AircrewData+CoreDataClass.swift */; };
 		D2A709472597A51400E7B122 /* AircrewData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A709412597A51400E7B122 /* AircrewData+CoreDataProperties.swift */; };
 		D2A709482597A51400E7B122 /* Form781+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A709422597A51400E7B122 /* Form781+CoreDataClass.swift */; };
@@ -54,11 +56,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
-		D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
-		D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
+		BF89F2AA259BAF1500020CE4 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
+		BF97DA9C259BA5B600C9F44A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Bold.ttf"; path = "../DMSans-Bold.ttf"; sourceTree = "<group>"; };
+		D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Regular.ttf"; path = "../DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Medium.ttf"; path = "../DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		D23BAF0E25956D07001EB217 /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
-		D2429FDD2595CF1600EB4A09 /* DevicesForPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesForPreview.swift; sourceTree = "<group>"; };
+		D2429FDD2595CF1600EB4A09 /* Devices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
 		D2A709402597A51400E7B122 /* AircrewData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AircrewData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D2A709412597A51400E7B122 /* AircrewData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AircrewData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D2A709422597A51400E7B122 /* Form781+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -114,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF89F2A9259BAF0400020CE4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BF89F2AA259BAF1500020CE4 /* DefaultsManager.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		D2A7094F2597A52200E7B122 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +158,7 @@
 		D2AEA8252592DB1E0099D97B /* PBLiOS */ = {
 			isa = PBXGroup;
 			children = (
+				BF89F2A9259BAF0400020CE4 /* Utilities */,
 				D2A7094F2597A52200E7B122 /* Model */,
 				D2AEA8342592DB200099D97B /* Info.plist */,
 				D2BFD7172595644A006E9E0D /* Support */,
@@ -162,7 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				D2AEA82D2592DB200099D97B /* Preview Assets.xcassets */,
-				D2429FDD2595CF1600EB4A09 /* DevicesForPreview.swift */,
+				D2429FDD2595CF1600EB4A09 /* Devices.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -204,9 +217,6 @@
 		D2BFD685259531F2006E9E0D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */,
-				D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */,
-				D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */,
 				D23BAF0E25956D07001EB217 /* fillable781v3.pdf */,
 				D2AEA82A2592DB200099D97B /* Assets.xcassets */,
 				D2BFD686259531FA006E9E0D /* Fonts */,
@@ -217,6 +227,9 @@
 		D2BFD686259531FA006E9E0D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */,
+				D201C9ED259A878B00F909A7 /* DMSans-Medium.ttf */,
+				D201C9EC259A878B00F909A7 /* DMSans-Regular.ttf */,
 				D2BFD69F25953747006E9E0D /* Font.swift */,
 			);
 			path = Fonts;
@@ -227,6 +240,7 @@
 			children = (
 				D2AEA8282592DB1E0099D97B /* ContentView.swift */,
 				D2BFD6A525955564006E9E0D /* Fillable781FormView.swift */,
+				BF97DA9C259BA5B600C9F44A /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -406,17 +420,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF89F2AB259BAF1500020CE4 /* DefaultsManager.swift in Sources */,
 				D2B76AB72597B273008FE52D /* FauxData.swift in Sources */,
 				D2BFD6A025953747006E9E0D /* Font.swift in Sources */,
 				D2BFD70825955C78006E9E0D /* AppDelegate.swift in Sources */,
 				D2AEA8332592DB200099D97B /* PBLiOS.xcdatamodeld in Sources */,
 				D2A709462597A51400E7B122 /* AircrewData+CoreDataClass.swift in Sources */,
+				BF97DA9D259BA5B600C9F44A /* SettingsView.swift in Sources */,
 				D2A709492597A51400E7B122 /* Form781+CoreDataProperties.swift in Sources */,
 				D2AEA8302592DB200099D97B /* Persistence.swift in Sources */,
 				D2A7094A2597A51400E7B122 /* Flight+CoreDataClass.swift in Sources */,
 				D2D3E5E42597FB2B009DCDFD /* Form781+SwiftUIHelpers.swift in Sources */,
 				D2BFD70D25955E39006E9E0D /* SceneDelegate.swift in Sources */,
-				D2429FDE2595CF1600EB4A09 /* DevicesForPreview.swift in Sources */,
+				D2429FDE2595CF1600EB4A09 /* Devices.swift in Sources */,
 				D2A7094B2597A51400E7B122 /* Flight+CoreDataProperties.swift in Sources */,
 				D2BFD6A625955564006E9E0D /* Fillable781FormView.swift in Sources */,
 				D2BFD6AF259555FD006E9E0D /* Constants.swift in Sources */,

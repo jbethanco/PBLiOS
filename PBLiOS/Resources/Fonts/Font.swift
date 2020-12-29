@@ -10,8 +10,7 @@ import SwiftUI
 
 // Provide our custom font, but with dynamic font size
 
-@available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)
-struct CustomFont: ViewModifier {
+ struct CustomFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
 
     var name: String
@@ -26,8 +25,7 @@ struct CustomFont: ViewModifier {
     }
 }
 
-@available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)
-extension View {
+ extension View {
     
     func dmSansFontBold(
         style: UIFont.TextStyle,

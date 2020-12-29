@@ -18,6 +18,8 @@ struct ContentView: View {
     
     private var forms: FetchedResults<Form781>
     
+    @State private var showSettings = false
+    
     var body: some View {
         
         NavigationView {
@@ -47,6 +49,20 @@ struct ContentView: View {
                                         }
                                     
                 )
+            
+                .sheet(isPresented: $showSettings, content: {
+                                    SettingsView()
+                                })
+                HStack{
+                    Button(action: {
+                        showSettings.toggle()
+                    }) {
+                        Image(systemName: "gear")
+                    }
+                    .padding()
+                    Spacer()
+                }
+                
             }
             
         }
@@ -56,10 +72,12 @@ struct ContentView: View {
     }
     
     private func addItem() {
+        print(#function)
         withAnimation {
             let newForm = Form781(context: moc)
             newForm.date = Date()
-            newForm.mds = "C0017A"
+            newForm.mds = DefaultsManager.stringFor(key: "defaultMDS")
+            
            
             do {
                 try moc.save()
@@ -94,6 +112,8 @@ struct ContentView_Previews: PreviewProvider {
         //Without it... the PersistenceController doesn't get initialized. Yet it does with iOS 14's App File ... Only effects previews
         let _ = PersistenceController.shared
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            .previewDevice(PreviewDevice(rawValue: Devices.iPadPro9_7.rawValue))
+            .previewDisplayName(Devices.iPadPro9_7.rawValue)
     }
 }
 
