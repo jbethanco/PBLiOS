@@ -154,7 +154,7 @@ struct FlightLineView: View {
             }
             .frame(width: 60, height: 25, alignment: .center)
             VStack{
-                DatePicker("", selection: Binding(
+                 DatePicker("", selection: Binding(
                     get: { return flights[index].takeOffTime! },
                     set: { (newValue) in return self.flights[index].takeOffTime = newValue}
                 ), displayedComponents: [.date, .hourAndMinute])

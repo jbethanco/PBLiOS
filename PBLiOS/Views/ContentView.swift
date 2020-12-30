@@ -58,6 +58,7 @@ struct ContentView: View {
                 HStack{
                     Button(action: {
                         showSettings.toggle()
+                        
                     }) {
                         Image(systemName: "gear")
                     }

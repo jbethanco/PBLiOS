@@ -18,10 +18,9 @@ struct PersistenceController {
         var counter = 0
         for i in 0..<5 {
             
-            print("hellloooooooooo")
+            #warning("Changes to persistent data for canvas previews require a clean of the build folder... that is in addition to being completely error free without the help of the console.")
             let newForm = Form781(context: viewContext)
             newForm.date = FauxData.dates[i]
-            //  newForm.date = Date()
             newForm.mds = FauxData.mds[i]
             newForm.issuingUnit = FauxData.issuingUnits[i]
             newForm.harmLocation = FauxData.harmLocations[i]
@@ -35,6 +34,11 @@ struct PersistenceController {
                 newFlight.fromICAO =  FauxData.icaos[counter]
                 newFlight.toICAO = FauxData.icaos[counter + 1]
                 newFlight.missionNumber = "\(x * i)"
+                newFlight.missionSymbol = "234"
+                newFlight.fullStop = 1
+                newFlight.touchanAndGo = 2
+                newFlight.landTime = FauxData.dateTimes[x]
+                newFlight.takeOffTime = FauxData.dateTimes[x+1]
                 newFlight.form781 = newForm
                 counter += 1
             }

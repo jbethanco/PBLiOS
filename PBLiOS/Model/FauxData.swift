@@ -25,6 +25,31 @@ struct FauxData{
         
     }()
     
+    static let dateTimes: [Date] = {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        var dates = [Date]()
+        
+        for i in 1..<24{
+            let hour = String(format: "%02d", i)
+            let minute = String(format: "%02d", i + 12)
+            
+            let month = (i % 11) + 1
+            let monthString = String(format: "%02d", month)
+            
+            let day = String(format: "%02d", i)
+            
+            let stringDate = "20\(14 + i)-\(monthString)-\(day) \(hour):\(minute)"
+            print(stringDate)
+            let thisDate = formatter.date(from: stringDate )
+            
+            dates.append(thisDate!)
+        }
+         return dates
+        
+    }()
+    
     static let mds = ["C017A", "C005M", "C130H", "KC135A", "KC046", "F035A", "F022A"]
     
     static let issuingUnits = ["0016AS" , "0009AS", "0181AS", "0036AS", "0063ARS", "0056OS", "0003W"]

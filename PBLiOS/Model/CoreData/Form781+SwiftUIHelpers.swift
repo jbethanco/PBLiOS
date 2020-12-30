@@ -4,8 +4,9 @@
 //
 //  Created by John Bethancourt on 12/26/20.
 //
+import Foundation
 
-extension Form781 {
+extension Form781{
     
     public var flightsArray: [Flight] {
         let set = flights as? Set<Flight> ?? []

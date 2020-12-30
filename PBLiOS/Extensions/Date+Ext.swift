@@ -21,7 +21,7 @@ extension Date{
         return formatter.string(from: self)
     }
      
-    // allows initialization of date with: Date(dateString:"2020-12-24")
+    // allows initialization of date with: Date("2020-12-24")
     init(_ dateString:String) {
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
