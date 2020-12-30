@@ -53,7 +53,6 @@ struct ContentView: View {
                                     SettingsView()
                 })
                 
-                
                 HStack{
                     Button(action: {
                         showSettings.toggle()

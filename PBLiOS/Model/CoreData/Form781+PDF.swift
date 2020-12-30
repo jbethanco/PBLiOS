@@ -14,9 +14,22 @@ extension Form781{
         case formNotFound
         case badPDF
         case couldNotFillOut
+        
+        func description() -> String {
+            let message = "PDF GEN ERROR: "
+            switch self {
+            case .badPDF: return message + "Bad PDF"
+            case .badURL: return message + "BAD URL"
+            case .couldNotFillOut: return message + "Could not fill out"
+            case .formNotFound: return message + "Form Not Found"
+            }
+        }
     }
     
     func generatePDF(completionHandler: @escaping (Result<URL, PDFGenError>) -> Void)  {
+        
+//        completionHandler(.failure(.badPDF))
+//        return
         
         guard let path = Bundle.main.path(forResource: "fillable781v3", ofType: "pdf") else {
             completionHandler(.failure(.formNotFound))
