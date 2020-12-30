@@ -1,9 +1,7 @@
 //
-//  PropertyWrappers.swift
+//  DefaultsManager.swift
 //  PBLiOS
-//
-//  Created by John Bethancourt on 12/29/20.
-//
+ 
 
 import Foundation
 import SwiftUI

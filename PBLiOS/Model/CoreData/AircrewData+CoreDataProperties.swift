@@ -1,10 +1,6 @@
 //
 //  AircrewData+CoreDataProperties.swift
 //  PBLiOS
-//
-//  Created by John Bethancourt on 12/26/20.
-//
-//
 
 import Foundation
 import CoreData

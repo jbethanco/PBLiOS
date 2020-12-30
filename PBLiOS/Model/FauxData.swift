@@ -1,12 +1,8 @@
 //
 //  FauxData.swift
 //  PBLiOS
-//
-//  Created by John Bethancourt on 12/26/20.
-//
 
 import Foundation
-
 
 struct FauxData{
     
@@ -17,8 +13,7 @@ struct FauxData{
         var dates = [Date]()
         for i in 1..<8{
             let stringDate = "20\(14 + i)-\(i)-\(i * 2)"
-            print(stringDate)
-            let date = Date("20\(14 + i)-\(i)-\(i * 2)")
+            let date = Date(stringDate)
             dates.append(date)
         }
         return dates
@@ -54,7 +49,7 @@ struct FauxData{
     
     static let issuingUnits = ["0016AS" , "0009AS", "0181AS", "0036AS", "0063ARS", "0056OS", "0003W"]
     
-    static let harmLocations = ["JB Charleston", "Dover AFB", "Yokota AB", "Fairchild AFB", "McConnell AFB" , "Luke AFB", "Joint Base Elmendorf-Richardson"]
+    static let harmLocations = ["JB Charleston", "Dover AFB", "Yokota AB", "Fairchild AFB", "McConnell AFB" , "Luke AFB", "JB Elmendorf-Richardson"]
     
     static let unitCharged = ["437 AW (HQ AMC)/DKFX", "436 AW (AMC)", "374 AW (PACAF)", "92 ARW (AMC)", "22 ARW (AMC)", "61 FS (AETC)", "477 FG (AFRC)"]
     
@@ -78,4 +73,51 @@ struct FauxData{
     
 }
 
+/*
  
+ AAF     - Army Airfield
+ AB      - Air Base
+ AC      - Aircraft
+ ACS     - Air Control Squadron
+ AETC    - Air Education and Training Command
+ AF      - Air Force
+ AF      - Airfield
+ AFB     - Air Force Base
+ AFI     - Air Force Instructin
+ AFMAN   - Air Force Manual
+ AFRC    - Air Force Reserve Command
+ AFSC    - Air Force Specialty Code
+ AFTO    - Air Force Technical Order
+ AMC     - Air Mobility Command
+ ARMS    - Aviation Resource Management System
+ ARW     - Air Refueling Wing
+ AS      - Airlift Squadron
+ AW      - Air Wing
+ DoD     - Department of Defense
+ EO      - Executive Order
+ EVAL    - Evaluator
+ FLT     - Flight
+ FS      - Fighter Squadron
+ HARM    - Host Aviation Resource Management
+ ICAO    - International Civil Aviation Organization
+ IMT     - Information Management Tool
+ INST    - Instructor
+ JB      - Joint Base
+ Maint   - Maintenance
+ MDS     - Mission Design Series
+ NVG     - Night Vision Goggles
+ ORGN    - Organization
+ OS      - Operations Squadron
+ P/S/I/E - Primary/Secondary/Instructor/Evaluator
+ PACAF   - Pacific Air Forces
+ PRIM    - Primary
+ SARM    - Squadron Aviation Resource Management
+ SEC     - Secondary
+ SEQ     - Sequence
+ SRTY    - Sortie
+ SSAN    - Social Security Account Number
+ SSN     - Social Security Number
+ TACP    - Tactical Air Control Party
+ U.S.C.  - US Code
+            
+ */

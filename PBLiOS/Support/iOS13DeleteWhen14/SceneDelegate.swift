@@ -1,9 +1,6 @@
 //
 //  SceneDelegate.swift
-//  Located
-//
-//  Created by John Bethancourt on 4/4/20.
-//  Copyright © 2020 Synaptic Edge LLC. All rights reserved.
+//  PBLiOS
 //
 
 import UIKit

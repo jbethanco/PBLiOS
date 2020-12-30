@@ -2,8 +2,7 @@
 //  Fillable781FormView.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/24/20.
-//
+
 
 import Foundation
 import SwiftUI
@@ -28,7 +27,22 @@ struct Fillable781FormView: View{
     var body: some View {
         
         VStack{
-            Text("AFTO Form 781 For \(form.date!.defaultDisplayDate())")
+            HStack{
+                Text(" AFTO Form 781 For \(form.date!.defaultDisplayDate())")
+                    .dmSansFontBold(style: .title2)
+                    .padding(.leading)
+                  
+                Spacer()
+                NavigationLink(destination:FormPreviewView(form:form)) {
+                    Image(systemName: "doc.text")
+                    Text("Preview")
+                }
+                .padding(.trailing)
+                .disabled(mds.isEmpty || serialNumber.isEmpty || harmLocation.isEmpty)
+                //why does the avove not work on the canvas preview?
+                
+            }
+            
             Form {
                 Section(header: Text("MISSION DATA").dmSansFont(style: .headline, weight: .bold)) {
                     
@@ -37,6 +51,8 @@ struct Fillable781FormView: View{
                         .datePickerStyle(DefaultDatePickerStyle())
                     
                     TextField("MDS",            text: $mds)
+                        .foregroundColor(mds.count < 4 ? .red : .primary)
+
                     TextField("Serial Number",  text: $serialNumber)
                     TextField("Unit Charged",   text: $unitCharged)
                     TextField("HARM Location",  text: $harmLocation)
@@ -65,7 +81,7 @@ struct Fillable781FormView: View{
                         }
                     }
                     ForEach(flights.indices, id:\.self ){ index in
-                        FlightLineView(flights: flights, index: index)
+                        FlightLineView(flights: $flights, index: index)
                     }
                     if flights.count <= 4{
                         Button(action: {
@@ -90,40 +106,47 @@ struct Fillable781FormView: View{
                     
                     
                 }
+                Section(header: Text("Crew").dmSansFont(style: .headline, weight: .bold)){
+                    Text("Crew Stuff")
+                }
             }
         }
         .onAppear{
-            self.mds            = self.form.mds ?? ""
-            self.date           = self.form.date ?? Date()
-            self.serialNumber   = self.form.serialNumber ?? ""
-            self.unitCharged    = self.form.unitCharged ?? ""
-            self.harmLocation   = self.form.harmLocation ?? ""
-            self.flightAuthNum  = self.form.flightAuthNum ?? ""
-            self.issuingUnit    = self.form.issuingUnit ?? ""
-            self.flights        = self.form.flightsArray
-            self.aircrewData    = self.form.aircrewDataArray
-            self.remarks        = self.form.remarks ?? ""
-            
+            loadData()
         }
         .onDisappear{
-            self.form.mds           = self.mds
-            self.form.date          = self.date
-            self.form.serialNumber  = self.serialNumber
-            self.form.unitCharged   = self.unitCharged
-            self.form.harmLocation  = self.harmLocation
-            self.form.flightAuthNum = self.flightAuthNum
-            self.form.issuingUnit   = self.issuingUnit
-            
-            
-            try? self.moc.save()
-            
+            saveData()
         }
-        
+    }
+    
+    public func loadData(){
+        self.mds            = self.form.mds ?? ""
+        self.date           = self.form.date ?? Date()
+        self.serialNumber   = self.form.serialNumber ?? ""
+        self.unitCharged    = self.form.unitCharged ?? ""
+        self.harmLocation   = self.form.harmLocation ?? ""
+        self.flightAuthNum  = self.form.flightAuthNum ?? ""
+        self.issuingUnit    = self.form.issuingUnit ?? ""
+        self.flights        = self.form.flightsArray
+        self.aircrewData    = self.form.aircrewDataArray
+        self.remarks        = self.form.remarks ?? ""
+    }
+    
+    public func saveData(){
+        self.form.mds           = self.mds
+        self.form.date          = self.date
+        self.form.serialNumber  = self.serialNumber
+        self.form.unitCharged   = self.unitCharged
+        self.form.harmLocation  = self.harmLocation
+        self.form.flightAuthNum = self.flightAuthNum
+        self.form.issuingUnit   = self.issuingUnit
+        self.form.remarks       = self.remarks
+        try? self.moc.save()
     }
 }
 
 struct FlightLineView: View {
-    var flights: [Flight]
+    @Binding var flights: [Flight]
     var index: Int
     
     var body: some View{
@@ -174,8 +197,8 @@ struct FlightLineView: View {
                 HStack{
                     Text("   T&G      ")
                      TextField("t&g", text: Binding(
-                        get: { return String(flights[index].touchanAndGo) },
-                        set: { (newValue) in return self.flights[index].touchanAndGo = Int16(newValue) ?? 0}
+                        get: { return String(flights[index].touchAndGo) },
+                        set: { (newValue) in return self.flights[index].touchAndGo = Int16(newValue) ?? 0}
                     ))
                 }
                 HStack{
@@ -187,13 +210,7 @@ struct FlightLineView: View {
                 }
                 
             }
-            
-            
-            
-            
-            
-            
-            
+     
         }.multilineTextAlignment(.center) //center text within TextFields
     }
 }
@@ -236,12 +253,21 @@ struct Fillable781Preview_Previews: PreviewProvider {
         }()
         
         Group {
+            
             Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
                 .padding()
                 .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
                 .previewDisplayName("iPad Pro (9.7-inch)")
             
-            //            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+                .padding()
+                .previewDevice(PreviewDevice(rawValue: "iPad Pro (9.7-inch)"))
+                .previewDisplayName("iPad Pro (9.7-inch)")
+                .previewLayout(.fixed(width: 2048 / 2, height: 1536 / 2))
+            
+     
+            
+             //            Fillable781FormView(form:form).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             //                .padding()
             //                .previewDevice(PreviewDevice(rawValue:Devices.iPhone12.rawValue))
             //                .previewDisplayName(Devices.iPhone12.rawValue)

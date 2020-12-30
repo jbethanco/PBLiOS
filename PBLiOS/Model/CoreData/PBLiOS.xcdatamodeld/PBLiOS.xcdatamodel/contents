@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D5029f" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AircrewData" representedClassName="AircrewData" syncable="YES">
         <attribute name="fcCombatSorties" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="fcCombatSupportSorties" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -37,7 +37,7 @@
         <attribute name="toICAO" optional="YES" attributeType="String"/>
         <attribute name="totalLandings" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="touchanAndGo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="touchAndGo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="form781" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Form781" inverseName="flights" inverseEntity="Form781"/>
     </entity>
     <entity name="Form781" representedClassName="Form781" syncable="YES">
@@ -54,7 +54,7 @@
         <attribute name="grandTotalFullStop" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="grandTotalLandings" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="grandTotalSorties" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="grandTotalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="grandTotalTime" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="grandTotalTouchAndGo" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="harmLocation" optional="YES" attributeType="String"/>
         <attribute name="issuingUnit" optional="YES" attributeType="String"/>
@@ -68,8 +68,8 @@
         <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Flight" inverseName="form781" inverseEntity="Flight"/>
     </entity>
     <elements>
-        <element name="AircrewData" positionX="-18.2059326171875" positionY="7.438690185546875" width="161.9541015625" height="344"/>
-        <element name="Flight" positionX="-175.6407470703125" positionY="209.6345825195312" width="130.5770263671875" height="254"/>
-        <element name="Form781" positionX="244.7130737304688" positionY="17.29898071289062" width="172.4862670898438" height="404"/>
+        <element name="AircrewData" positionX="0" positionY="0" width="128" height="344"/>
+        <element name="Flight" positionX="0" positionY="0" width="128" height="254"/>
+        <element name="Form781" positionX="0" positionY="0" width="128" height="404"/>
     </elements>
 </model>

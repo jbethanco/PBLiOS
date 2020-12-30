@@ -2,9 +2,6 @@
 //  PBLiOSApp.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/22/20.
-//
-//
 
 // TODO: IF updated to iOS 14
 // 1. Uncomment Code Below

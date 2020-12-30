@@ -2,8 +2,6 @@
 //  ContentView.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/22/20.
-//
 
 import SwiftUI
 import CoreData
@@ -36,6 +34,7 @@ struct ContentView: View {
                                 .foregroundColor(Color(.white))
                         }
                     }
+                   
                     .onDelete(perform: deleteItems)
                 }
                 // .navigationTitle("Forms") //iOS 14 only :(

@@ -2,8 +2,6 @@
 //  Persistence.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/22/20.
-//
 
 import CoreData
 
@@ -36,7 +34,7 @@ struct PersistenceController {
                 newFlight.missionNumber = "\(x * i)"
                 newFlight.missionSymbol = "234"
                 newFlight.fullStop = 1
-                newFlight.touchanAndGo = 2
+                newFlight.touchAndGo = 2
                 newFlight.landTime = FauxData.dateTimes[x]
                 newFlight.takeOffTime = FauxData.dateTimes[x+1]
                 newFlight.form781 = newForm

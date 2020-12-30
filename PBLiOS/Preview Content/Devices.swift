@@ -2,8 +2,6 @@
 //  DevicesForPreview.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/24/20.
-//
 
 import Foundation
 
@@ -30,10 +28,10 @@ enum Devices: String {
     
     
 }
-/*iPhone Xʀ (com
- In terminal run:
+/*
  
- xcrun simctl list
+ In terminal run:
+ xcrun simctl list devicetypes
  
  Gives available device types for swift ui preview
   

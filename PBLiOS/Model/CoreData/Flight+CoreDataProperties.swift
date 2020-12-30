@@ -2,9 +2,7 @@
 //  Flight+CoreDataProperties.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/26/20.
-//
-//
+
 
 import Foundation
 import CoreData
@@ -29,7 +27,7 @@ extension Flight {
     @NSManaged public var takeOffTime: Date?
     @NSManaged public var totalLandings: Int16
     @NSManaged public var totalTime: Float
-    @NSManaged public var touchanAndGo: Int16
+    @NSManaged public var touchAndGo: Int16
     @NSManaged public var form781: Form781?
 
 }

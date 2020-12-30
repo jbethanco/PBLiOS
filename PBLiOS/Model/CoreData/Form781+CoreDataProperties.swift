@@ -2,9 +2,6 @@
 //  Form781+CoreDataProperties.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/26/20.
-//
-//
 
 import Foundation
 import CoreData
@@ -29,7 +26,7 @@ extension Form781 {
     @NSManaged public var grandTotalFullStop: Int16
     @NSManaged public var grandTotalLandings: Int16
     @NSManaged public var grandTotalSorties: Int16
-    @NSManaged public var grandTotalTime: Double
+    @NSManaged public var grandTotalTime: Float
     @NSManaged public var grandTotalTouchAndGo: Int16
     @NSManaged public var harmLocation: String?
     @NSManaged public var issuingUnit: String?

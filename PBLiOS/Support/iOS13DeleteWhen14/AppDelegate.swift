@@ -2,8 +2,6 @@
 //  AppDelegate.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/24/20.
-//
 
 import UIKit
 

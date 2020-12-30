@@ -2,8 +2,7 @@
 //  Form781+SwiftUIHelpers.swift
 //  PBLiOS
 //
-//  Created by John Bethancourt on 12/26/20.
-//
+
 import Foundation
 
 extension Form781{

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3C84D0259C08F900E2422B /* FormPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3C84CF259C08F900E2422B /* FormPreviewView.swift */; };
+		BF887DF0259C0F8B00E68010 /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF887DEF259C0F8B00E68010 /* Form781+PDF.swift */; };
 		BF89F2AB259BAF1500020CE4 /* DefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF89F2AA259BAF1500020CE4 /* DefaultsManager.swift */; };
 		BF97DA9D259BA5B600C9F44A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF97DA9C259BA5B600C9F44A /* SettingsView.swift */; };
 		D201C9EE259A878B00F909A7 /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */; };
@@ -56,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF3C84CF259C08F900E2422B /* FormPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormPreviewView.swift; sourceTree = "<group>"; };
+		BF887DEF259C0F8B00E68010 /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
 		BF89F2AA259BAF1500020CE4 /* DefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsManager.swift; sourceTree = "<group>"; };
 		BF97DA9C259BA5B600C9F44A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D201C9EB259A878B00F909A7 /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DMSans-Bold.ttf"; path = "../DMSans-Bold.ttf"; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 				D2A709422597A51400E7B122 /* Form781+CoreDataClass.swift */,
 				D2A709432597A51400E7B122 /* Form781+CoreDataProperties.swift */,
 				D2D3E5E32597FB2B009DCDFD /* Form781+SwiftUIHelpers.swift */,
+				BF887DEF259C0F8B00E68010 /* Form781+PDF.swift */,
 				D2A709442597A51400E7B122 /* Flight+CoreDataClass.swift */,
 				D2A709452597A51400E7B122 /* Flight+CoreDataProperties.swift */,
 				D2AEA8312592DB200099D97B /* PBLiOS.xcdatamodeld */,
@@ -241,6 +246,7 @@
 				D2AEA8282592DB1E0099D97B /* ContentView.swift */,
 				D2BFD6A525955564006E9E0D /* Fillable781FormView.swift */,
 				BF97DA9C259BA5B600C9F44A /* SettingsView.swift */,
+				BF3C84CF259C08F900E2422B /* FormPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -427,6 +433,8 @@
 				D2AEA8332592DB200099D97B /* PBLiOS.xcdatamodeld in Sources */,
 				D2A709462597A51400E7B122 /* AircrewData+CoreDataClass.swift in Sources */,
 				BF97DA9D259BA5B600C9F44A /* SettingsView.swift in Sources */,
+				BF887DF0259C0F8B00E68010 /* Form781+PDF.swift in Sources */,
+				BF3C84D0259C08F900E2422B /* FormPreviewView.swift in Sources */,
 				D2A709492597A51400E7B122 /* Form781+CoreDataProperties.swift in Sources */,
 				D2AEA8302592DB200099D97B /* Persistence.swift in Sources */,
 				D2A7094A2597A51400E7B122 /* Flight+CoreDataClass.swift in Sources */,
