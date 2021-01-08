@@ -2,6 +2,9 @@
 //  Form781+CoreDataProperties.swift
 //  PBLiOS
 //
+//  Created by John Bethancourt on 1/2/21.
+//
+//
 
 import Foundation
 import CoreData
@@ -32,10 +35,10 @@ extension Form781 {
     @NSManaged public var issuingUnit: String?
     @NSManaged public var maintenanceReview: String?
     @NSManaged public var mds: String?
+    @NSManaged public var remarks: String?
     @NSManaged public var sarmReview: String?
     @NSManaged public var serialNumber: String?
     @NSManaged public var unitCharged: String?
-    @NSManaged public var remarks: String?
     @NSManaged public var aircrewData: NSSet?
     @NSManaged public var flights: NSSet?
 

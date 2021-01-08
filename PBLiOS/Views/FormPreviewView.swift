@@ -28,7 +28,6 @@ struct FormPreviewView: View {
                                 Image(systemName: "square.and.arrow.up")
                                 Text("Share")
                             }
-                            
                         }
                         .padding(.trailing)
                         
